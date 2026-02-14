@@ -1,7 +1,21 @@
 # Azure Cost Management & FinOps — Module Authoring Guide
 
+| | |
+|---|---|
+| **Version** | `1.20260214.3` |
+| **Last updated** | `14.02.2026` |
+| **Author** | DirkBri |
+
 > **Audience:** CSA module authors and AI tools that create, modify, or update workshop modules.
 > This guide is the single source of truth for all module authoring rules, conventions, and processes.
+
+### Version History
+
+| Version | Date | Change |
+|---------|------|--------|
+| `1.20260214.3` | 14.02.2026 | Removed customer-specific sections (3.7, 3.8); added document versioning |
+| `1.20260214.2` | 14.02.2026 | Added VBD content design principles (Section 3), enhanced content/demo/publishing sections |
+| `1.20260214.1` | 14.02.2026 | Initial release |
 
 ---
 
@@ -121,31 +135,7 @@ VBD sessions are **collaborative workshops**, not presentations. Design for dial
 
 > **Rule:** For every 3–4 content slides, include at least one interaction point (discussion, exercise, or customer-specific exploration). Document these in slide notes.
 
-### 3.7 Customer Context First
-
-Generic content has limited impact. Design modules so presenters can **ground every concept in the customer's environment**.
-
-| Principle | Guidance |
-|-----------|----------|
-| **Use customer data** | Where possible, reference actual customer billing scopes, subscriptions, or cost data during delivery. Design slides that accommodate this. |
-| **Avoid generic screenshots** | Prefer live portal demos over static screenshots. If screenshots are necessary, note in slide notes: "Replace with customer-environment screenshot if available." |
-| **Tailor examples** | Use industry-relevant and scale-appropriate examples. A startup's cost optimization looks different from an enterprise's. |
-| **Pre-session preparation** | Note in slide notes what customer information the presenter should gather before delivery (e.g., "Obtain EA enrollment number and current credit balance"). |
-
-### 3.8 Actionable Outputs
-
-Every VBD session should produce **tangible artifacts**, not just knowledge transfer.
-
-| Output Type | Example |
-|-------------|---------|
-| **Decisions documented** | "Customer decided to implement budget alerts at 90%, 100%, 110% thresholds." |
-| **Next steps with owners** | "Action: Procurement team to review MACC milestone dates by [date]." |
-| **Recommendations** | "Recommendation: Centralize credit monitoring under the FinOps team." |
-| **Artifacts** | Completed assessment worksheets, architecture decisions, governance policies drafted. |
-
-> **Rule:** The final content slide before the demos/Q&A section should be a "Key Takeaways" or "Next Steps" slide that captures actionable outcomes. Slide notes should prompt the presenter: "Capture customer-specific decisions and next steps here."
-
-### 3.9 Consistency & Reusability
+### 3.7 Consistency & Reusability
 
 All modules must be interchangeable parts of a modular workshop system.
 
@@ -158,7 +148,7 @@ All modules must be interchangeable parts of a modular workshop system.
 | **Template compliance** | Only template layouts, no custom masters or themes (see Section 5) |
 | **Terminology** | Use Azure product names exactly as they appear in official Microsoft documentation |
 
-### 3.10 Follow-Up & Traceability
+### 3.8 Follow-Up & Traceability
 
 A VBD module is not complete at session end. Design for **handover and follow-up**.
 
@@ -372,8 +362,6 @@ Content slides are the core of the module. They are inserted between **slide 2**
 5. **Slide notes** — every content slide must have `Slide last modified: dd.mm.yyyy` as the first line of its notes section (see Section 11).
 6. **Visual consistency** — use the template's built-in color scheme, fonts, and placeholder styles. Do not introduce custom colors or fonts.
 7. **Interactive checkpoints** — after every 3–4 content slides, include a natural discussion point. Document it in slide notes (e.g., "Discussion: Ask the customer how they currently handle this."). See Section 3.6.
-8. **Customer context** — where a slide presents a concept, note in the speaker notes what customer-specific data or examples the presenter should substitute. Avoid purely generic content when the topic can be grounded in the customer's environment. See Section 3.7.
-9. **Actionable takeaways** — the last content slide before the demo section should capture key takeaways, decisions, or next steps. Include a slide notes prompt: "Capture customer-specific decisions and next steps here." See Section 3.8.
 
 ---
 
@@ -457,8 +445,7 @@ When a module has been created or updated and is ready for publishing:
 3. **Validate VBD readiness** — confirm the module meets the content design principles in Section 3:
    - Clear purpose and measurable outcomes defined
    - Interactive checkpoints documented in slide notes
-   - Customer context prompts included for the presenter
-   - Actionable outputs (decisions, next steps) captured on final content slide
+   - Logical progressive flow with right-sized content
 4. **Save** the file with the correct naming convention (Section 2).
 5. **Inform Dirk** that the module is ready for publishing. Include:
    - The module file name
@@ -467,10 +454,10 @@ When a module has been created or updated and is ready for publishing:
 
 ### Post-Delivery Expectations
 
-After a module is delivered to a customer:
+After a module is delivered:
 
-1. **Complete the deck** — the presenter fills in any customer-specific decisions, next steps, and action items captured during the session in the slide notes.
-2. **Handover** — the completed deck (with session notes) serves as a standalone record and can be shared with the customer or used for follow-up planning.
+1. **Complete the deck** — the presenter fills in any decisions, next steps, and action items captured during the session in the slide notes.
+2. **Handover** — the completed deck (with session notes) serves as a standalone record that can be shared or used for follow-up planning.
 3. **Recommendations traceability** — every recommendation made during the session should trace back to a specific section of the module, ensuring accountability and follow-through.
 
 ---
@@ -496,8 +483,7 @@ Use this checklist when creating a brand-new module from scratch:
    - Use only template layouts.
    - Follow the educational flow: introduce → explain → demonstrate → summarize.
    - Include interactive discussion prompts in slide notes every 3–4 slides.
-   - Add customer context notes for the presenter where applicable.
-   - End with a "Key Takeaways" or "Next Steps" slide with actionable outputs.
+   - End with a "Key Takeaways" slide summarizing the module's learning objectives.
    - Set `Slide last modified:` in notes to today's date for each new slide.
 6. **Document scope** — in slide notes on slide 1 or the first content slide, state what is in scope, out of scope, any assumptions, prerequisites, and dependencies on other modules.
 7. **Demo slide:**
@@ -538,6 +524,6 @@ When an AI tool is used to create, modify, or update a module, it **must** adher
 | **Non-invasive demos only** | Any generated demo descriptions must be read-only operations. Never suggest demos that create, modify, or delete resources. |
 | **Module scope** | If asked to add content that belongs to a different topic, create a separate module instead. |
 | **Notify after changes** | Remind the author to inform Dirk when the module is ready for publishing. |
-| **Apply VBD principles** | All content must follow Section 3 — clear purpose, outcome-driven, interactive checkpoints, customer context prompts, and actionable takeaways. |
+| **Apply VBD principles** | All content must follow Section 3 — clear purpose, outcome-driven, interactive checkpoints, logical flow, and consistency. |
 | **Document scope in notes** | When creating a module, populate slide notes on slide 1 with in-scope, out-of-scope, assumptions, prerequisites, and dependencies. Cross-reference existing modules by ID. |
 | **Include interaction prompts** | Add discussion questions or customer exploration prompts in slide notes every 3–4 content slides. Format: "Discussion: [question for the customer]". |

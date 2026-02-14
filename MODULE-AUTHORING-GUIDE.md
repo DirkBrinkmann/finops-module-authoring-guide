@@ -1,10 +1,5 @@
 # Azure Cost Management & FinOps — Module Authoring Guide
 
-| | |
-|---|---|
-| **Version** | `1.20260214.3` |
-| **Last updated** | `14.02.2026` |
-| **Author** | DirkBri |
 
 > **Audience:** CSA module authors and AI tools that create, modify, or update workshop modules.
 > This guide is the single source of truth for all module authoring rules, conventions, and processes.

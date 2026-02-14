@@ -1,0 +1,6 @@
+# Ignore PowerPoint temp files and OS artifacts
+~$*.pptx
+*.tmp
+Thumbs.db
+desktop.ini
+.DS_Store

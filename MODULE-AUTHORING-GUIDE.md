@@ -8,6 +8,7 @@
 
 | Version | Date | Change |
 |---------|------|--------|
+| `1.20260217.1` | 17.02.2026 | Added PPTX template download link to Section 5 |
 | `1.20260214.3` | 14.02.2026 | Removed customer-specific sections (3.7, 3.8); added document versioning |
 | `1.20260214.2` | 14.02.2026 | Added VBD content design principles (Section 3), enhanced content/demo/publishing sections |
 | `1.20260214.1` | 14.02.2026 | Initial release |
@@ -174,6 +175,8 @@ A VBD module is not complete at session end. Design for **handover and follow-up
 ### Template Source
 
 All modules **must** be created from the official template stored on the development SharePoint folder. The template file is named `M-xxx-Category-Topicwithincategory.pptx`. Do not create modules from scratch or from other PowerPoint files.
+
+📥 **[Download the PPTX template](https://microsoft.sharepoint.com/:p:/t/ASDIPDevelopment/IQBrpqvqH3ffRIAqsi7jQQz9AW71Dektsc1t2LuC0uxkYuU?e=zuKnrx)**
 
 ### Presentation Format
 

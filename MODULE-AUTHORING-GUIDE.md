@@ -8,6 +8,8 @@
 
 | Version | Date | Change |
 |---------|------|--------|
+| `1.20260220.2` | 20.02.2026 | Added Glossary of Acronyms as required slide 3 (Section 6, 9) |
+| `1.20260220.1` | 20.02.2026 | Added PowerPoint sections, bulleted list rule, and confidential footer removal rule |
 | `1.20260217.1` | 17.02.2026 | Added PPTX template download link to Section 5 |
 | `1.20260214.3` | 14.02.2026 | Removed customer-specific sections (3.7, 3.8); added document versioning |
 | `1.20260214.2` | 14.02.2026 | Added VBD content design principles (Section 3), enhanced content/demo/publishing sections |
@@ -105,7 +107,7 @@ Structure content as a **progressive learning journey**, not a reference documen
 | Principle | Guidance |
 |-----------|----------|
 | **Progressive disclosure** | Start with "why it matters," then "how it works," then "what to do about it." Never lead with configuration details. |
-| **Section dividers** | Use Divider layouts to separate major topics. Each section should build on the previous one. |
+| **Section dividers** | Use `Divider_1` layout slides to separate major topics. Each divider slide also marks the beginning of a **PowerPoint section** (Insert → Section → Add Section). Name each section to match the divider title. Each section should build on the previous one. |
 | **Right-sized slides** | One idea per slide. If a slide requires more than 60 seconds to present, split it. |
 | **Realistic pacing** | A typical VBD module runs 45–90 minutes including discussion. Plan for ~2 minutes per content slide plus discussion time. A 20-slide content section ≈ 60–75 minutes delivered. |
 | **Discussion checkpoints** | Plan natural pause points after every section (3–5 content slides) where the presenter can engage the customer. Note these in slide notes. |
@@ -138,7 +140,7 @@ All modules must be interchangeable parts of a modular workshop system.
 | Element | Standard |
 |---------|----------|
 | **File naming** | `M-<NNN>-<Category>-<Topic>.pptx` (see Section 2) |
-| **Slide structure** | Title → Changelog → Content → Demos → Q&A → Thank You (see Section 6) |
+| **Slide structure** | Title → Changelog → Glossary → Content → Demos → Q&A → Thank You (see Section 6) |
 | **Changelog** | Every change tracked with date, slides, type, description, author (see Section 8) |
 | **Date tracking** | Slide-level and module-level dates maintained (see Sections 11–12) |
 | **Template compliance** | Only template layouts, no custom masters or themes (see Section 5) |
@@ -182,6 +184,7 @@ All modules **must** be created from the official template stored on the develop
 
 - **Aspect ratio:** 16:9 widescreen (13.33″ × 7.50″)
 - **Slide numbering:** Enabled via footer placeholders
+- **Default font:** Segoe UI 18pt for all slide content shapes
 
 ### Available Slide Layouts
 
@@ -220,22 +223,45 @@ Every module **must** contain the following slides in this exact order. Authors 
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
+│ [Section: Introduction]                                               │
 │ Slide 1:  Title Slide              (Layout: 1_Title square photo)     │
 │ Slide 2:  Module Changelog         (Layout: Title Only) [HIDDEN]      │
-│           ── Author inserts content slides here ──                     │
+│ Slide 3:  Glossary of Acronyms     (Layout: Title Only) [HIDDEN]      │
+│                                                                       │
+│ [Section: <Chapter Name>]                                             │
+│ Slide 4:  Section Divider          (Layout: Divider_1)                │
+│ Slides:   Content slides for this chapter                             │
+│                                                                       │
+│ [Section: <Chapter Name>]  ── repeat for each logical chapter ──      │
+│ Slide:    Section Divider          (Layout: Divider_1)                │
+│ Slides:   Content slides for this chapter                             │
+│                                                                       │
+│ [Section: Demos & Closing]                                            │
 │ Slide N-2: Suggested Live Demos    (Layout: Agenda Layout)            │
 │ Slide N-1: Any More Questions?     (Layout: Divider_1)                │
 │ Slide N:   Thank You               (Layout: ThankYou)                 │
 └─────────────────────────────────────────────────────────────┘
 ```
 
+### PowerPoint Sections
+
+Group slides into **PowerPoint sections** (Insert → Section → Add Section) to organize the slide panel. Every `Divider_1` slide marks the start of a new section. Name each section to match the divider slide title.
+
+| Section | Starts At | Contains |
+|---------|-----------|----------|
+| **Introduction** | Slide 1 (Title) | Title slide + Changelog + Glossary |
+| **\<Chapter Name\>** | Divider slide | Divider + all content slides for that chapter |
+| *(repeat for each chapter)* | | |
+| **Demos & Closing** | Demo slide | Demos + Q&A + Thank You |
+
 ### Rules
 
-- **Slide 1 (Title)** and **Slide 2 (Changelog)** are always the first two slides.
-- **Content slides** are inserted between slide 2 and the demos slide. Authors may add any number of content slides.
+- **Slide 1 (Title)**, **Slide 2 (Changelog)**, and **Slide 3 (Glossary)** are always the first three slides.
+- **Content slides** are grouped into chapters. Each chapter begins with a `Divider_1` slide followed by its content slides.
+- **Content slides** are inserted between slide 3 and the demos slide. Authors may add any number of content slides.
 - **Demo slide** must appear immediately before the "Any more Questions?" slide.
 - **"Any more Questions?"** and **"Thank you."** are the last two slides and must not be modified or removed.
-- **Slide 2 is always hidden** (not shown during presentation).
+- **Slides 2 and 3 are always hidden** (not shown during presentation).
 
 ---
 
@@ -259,7 +285,7 @@ Four rectangular shapes along the bottom of the slide contain module metadata:
 | Shape | Content | How to Fill |
 |-------|---------|-------------|
 | **Module ID** (Rectangle 6) | `M-<NNN>` | Replace `XXXX` with the three-digit module number (e.g., `M-016`). |
-| **Module last modified** (Rectangle 13) | `Module last modified: dd.mm.yyyy` | Set to the date of the most recently modified slide in the module (see Section 12). |
+| **Module last modified** (Rectangle 13) | `Module last modified: dd.mm.yyyy` | Set to the date of the most recently modified slide in the module (see Section 13). |
 | **Primary target audience** (Rectangle 11) | `Primary target audience: <value>` | Replace `<value>` with one of: `FinOps`, `Product`, `agnostic`. |
 | **Microsoft contract type** (Rectangle 12) | `Microsoft contract type: <value>` | Replace `<value>` with one of: `EA`, `MCA-E`, `agnostic`. |
 
@@ -275,7 +301,7 @@ Four rectangular shapes along the bottom of the slide contain module metadata:
 Slide 2 uses layout `Title Only` and is **always hidden**. It contains:
 
 - **Title:** `Module Changelog`
-- **Table** with 5 columns:
+- **Table** with 5 columns (font size: **8pt**):
 
 | Column | Description | Format |
 |--------|-------------|--------|
@@ -307,7 +333,46 @@ Slide 2 uses layout `Title Only` and is **always hidden**. It contains:
 
 ---
 
-## 9. Demo Slide
+## 9. Glossary Slide (Slide 3, Hidden)
+
+Slide 3 uses layout `Title Only` and is **always hidden**. It serves as a reference glossary of all acronyms and abbreviations used in the module.
+
+### Structure
+
+- **Title:** `Glossary of Acronyms`
+- **Table** with 3 columns:
+
+| Column | Description | Format |
+|--------|-------------|--------|
+| **Acronym** | The abbreviation as used in the module | Uppercase, bold (e.g., `ACSS`, `RI`, `TCO`) |
+| **Definition** | Full name or meaning of the acronym | Plain text, concise |
+| **Link** | One key reference URL for the acronym | Product page, Microsoft Learn, Wikipedia, or other authoritative public source |
+
+### Rules
+
+| Rule | Detail |
+|------|--------|
+| **Completeness** | Include every acronym and abbreviation used anywhere in the module (slides, notes, demos). |
+| **Alphabetical order** | Sort entries alphabetically by acronym. |
+| **One link per entry** | Each acronym must have exactly one reference link. Prefer official product pages (e.g., Microsoft Learn) over generic sources. Use Wikipedia only when no official product page exists. |
+| **Font size** | Use a font size that fits all entries on one slide. For modules with many acronyms, use 9–10pt to fit a single slide. |
+| **Hidden slide** | Slide 3 is always hidden — it is a reference document, not presented live. Presenters may unhide it for Q&A or include it in handouts. |
+| **Update on change** | When adding new acronyms to the module (in content slides, demos, or notes), add corresponding entries to the glossary. |
+
+### Example
+
+| Acronym | Definition | Link |
+|---------|------------|------|
+| **ACSS** | Azure Center for SAP Solutions | `https://learn.microsoft.com/en-us/azure/sap/center-sap-solutions/overview` |
+| **AHB** | Azure Hybrid Benefit | `https://azure.microsoft.com/en-us/pricing/hybrid-benefit/` |
+| **RI** | Reserved Instance | `https://azure.microsoft.com/en-us/pricing/reserved-vm-instances/` |
+| **TCO** | Total Cost of Ownership | `https://azure.microsoft.com/en-us/pricing/tco/calculator/` |
+
+> **Note for AI tools:** When creating or updating a module, scan all slide text and notes for acronyms, generate a complete glossary table sorted alphabetically, and include one authoritative URL per entry. Prefer Microsoft Learn or official product pages. Update the glossary whenever content changes introduce new acronyms.
+
+---
+
+## 10. Demo Slide
 
 The demo slide uses layout `Agenda Layout` and appears immediately before the "Any more Questions?" slide. It is **optional but recommended** — include it if applicable and valuable for the module's topic.
 
@@ -343,7 +408,7 @@ Whenever possible, demos should use **the customer's own environment** rather th
 
 ---
 
-## 10. Content Slides
+## 11. Content Slides
 
 Content slides are the core of the module. They are inserted between **slide 2** (hidden changelog) and the **demo slide**.
 
@@ -357,13 +422,15 @@ Content slides are the core of the module. They are inserted between **slide 2**
    - **Summarize** key takeaways
 3. **One idea per slide** — avoid overcrowding. If a slide has too much content, split it.
 4. **Consistent terminology** — use Azure product names exactly as they appear in official Microsoft documentation.
-5. **Slide notes** — every content slide must have `Slide last modified: dd.mm.yyyy` as the first line of its notes section (see Section 11).
+5. **Slide notes** — every content slide must have `Slide last modified: dd.mm.yyyy` as the first line of its notes section (see Section 12).
 6. **Visual consistency** — use the template's built-in color scheme, fonts, and placeholder styles. Do not introduce custom colors or fonts.
 7. **Interactive checkpoints** — after every 3–4 content slides, include a natural discussion point. Document it in slide notes (e.g., "Discussion: Ask the customer how they currently handle this."). See Section 3.6.
+8. **Bulleted lists** — when presenting lists, use PowerPoint's integrated bulleted list capability (Home → Paragraph → Bullets) instead of manually typed bullet characters (e.g., `•`, `–`, `*`). This ensures consistent indentation, spacing, and formatting across slides.
+9. **Remove confidential footers and page numbers** — delete any shapes at the bottom of content slides that contain "Microsoft Confidential" text or standalone page/slide numbers. These are not needed in VBD delivery decks and should be removed from all content slides, divider slides, and closing slides. The title slide's bottom-bar metadata shapes (Module ID, audience, contract type, last modified) must be preserved.
 
 ---
 
-## 11. Slide Notes — Date Tracking Convention
+## 12. Slide Notes — Date Tracking Convention
 
 **Every slide** in the module (including the title slide, changelog, demos, and closing slides) must have the following as the **first line** of its notes section:
 
@@ -393,7 +460,7 @@ Key talking points:
 
 ---
 
-## 12. Date Tracking — Module-Level
+## 13. Date Tracking — Module-Level
 
 The **"Module last modified"** field on the title slide (Rectangle 13) must always reflect the **most recent** `Slide last modified` date across all slides in the module.
 
@@ -407,7 +474,7 @@ The **"Module last modified"** field on the title slide (Rectangle 13) must alwa
 
 ---
 
-## 13. Change Tracking Workflow
+## 14. Change Tracking Workflow
 
 Every modification to a module requires three coordinated updates:
 
@@ -434,11 +501,11 @@ Every modification to a module requires three coordinated updates:
 
 ---
 
-## 14. Publishing Process
+## 15. Publishing Process
 
 When a module has been created or updated and is ready for publishing:
 
-1. **Verify** all checklist items from Section 13 are complete.
+1. **Verify** all checklist items from Section 14 are complete.
 2. **Review** the module for educational flow, completeness, and accuracy.
 3. **Validate VBD readiness** — confirm the module meets the content design principles in Section 3:
    - Clear purpose and measurable outcomes defined
@@ -460,7 +527,7 @@ After a module is delivered:
 
 ---
 
-## 15. Quick Reference — New Module Checklist
+## 16. Quick Reference — New Module Checklist
 
 Use this checklist when creating a brand-new module from scratch:
 
@@ -477,23 +544,34 @@ Use this checklist when creating a brand-new module from scratch:
 4. **Slide 2 — Changelog:**
    - Add the first entry: Date = today, Slides = `All`, Change Type = `MAJOR`, Description = `Initial module creation`, Author = your alias.
    - Set `Slide last modified:` in notes to today's date.
-5. **Add content slides** between slide 2 and the demo slide.
+5. **Add content slides** between slide 3 and the demo slide.
    - Use only template layouts.
+   - Group content into logical chapters. Start each chapter with a `Divider_1` slide.
    - Follow the educational flow: introduce → explain → demonstrate → summarize.
+   - Use PowerPoint's integrated bulleted list capability for all lists (do not manually type bullet characters).
    - Include interactive discussion prompts in slide notes every 3–4 slides.
    - End with a "Key Takeaways" slide summarizing the module's learning objectives.
    - Set `Slide last modified:` in notes to today's date for each new slide.
-6. **Document scope** — in slide notes on slide 1 or the first content slide, state what is in scope, out of scope, any assumptions, prerequisites, and dependencies on other modules.
-7. **Demo slide:**
+6. **Slide 3 — Glossary of Acronyms:**
+   - Use layout `Title Only`. Set the title to `Glossary of Acronyms`.
+   - Create a table with three columns: **Acronym**, **Definition**, **Link**.
+   - Include every acronym and abbreviation used in the module, sorted alphabetically.
+   - Provide one authoritative reference URL per entry (prefer Microsoft Learn or official product pages).
+   - Hide the slide (Slide Show → Hide Slide).
+   - Set `Slide last modified:` in notes to today's date.
+7. **Create PowerPoint sections** — group slides into sections (Insert → Section → Add Section). Name each section to match the divider slide title. First section = "Introduction" (slides 1–3); last section = "Demos & Closing".
+8. **Remove confidential footers and page numbers** — delete any shapes containing "Microsoft Confidential" text or standalone page/slide number placeholders from all slides (except the title slide's bottom-bar metadata shapes).
+8. **Document scope** — in slide notes on slide 1 or the first content slide, state what is in scope, out of scope, any assumptions, prerequisites, and dependencies on other modules.
+9. **Demo slide:**
    - Fill in 1–5 non-invasive demo descriptions (if applicable).
    - Set `Slide last modified:` in notes to today's date.
-8. **Leave closing slides** ("Any more Questions?" and "Thank you.") unchanged.
-9. **Update `Module last modified:`** on slide 1 to today's date.
-10. **Inform Dirk** that the module is ready.
+10. **Leave closing slides** ("Any more Questions?" and "Thank you.") unchanged.
+11. **Update `Module last modified:`** on slide 1 to today's date.
+12. **Inform Dirk** that the module is ready.
 
 ---
 
-## 16. Quick Reference — Module Update Checklist
+## 17. Quick Reference — Module Update Checklist
 
 Use this checklist when updating an existing module:
 
@@ -507,21 +585,25 @@ Use this checklist when updating an existing module:
 
 ---
 
-## 17. Rules for AI Tools
+## 18. Rules for AI Tools
 
 When an AI tool is used to create, modify, or update a module, it **must** adhere to all rules in this guide. Additionally:
 
 | Rule | Detail |
 |------|--------|
 | **Always use the template** | Start from `M-xxx-Category-Topicwithincategory.pptx`. Never generate slides from scratch. |
-| **Preserve fixed slides** | Do not remove or reorder slides 1, 2, or the closing slides (Q&A + Thank you). |
+| **Preserve fixed slides** | Do not remove or reorder slides 1, 2, 3, or the closing slides (Q&A + Thank you). |
 | **Use only template layouts** | Reference layouts by their exact names as listed in Section 5. Do not create or modify layouts. |
 | **Track all changes** | After any modification, update slide notes dates, the changelog, and the module-level date. |
 | **Parse dates carefully** | The date format is `dd.mm.yyyy` (European format). `05.02.2026` means February 5, 2026 — not May 2. |
-| **Maintain slide order** | Content slides go between slide 2 and the demo slide. Never insert content after the demo slide. |
+| **Maintain slide order** | Content slides go between slide 3 and the demo slide. Never insert content after the demo slide. |
 | **Non-invasive demos only** | Any generated demo descriptions must be read-only operations. Never suggest demos that create, modify, or delete resources. |
 | **Module scope** | If asked to add content that belongs to a different topic, create a separate module instead. |
 | **Notify after changes** | Remind the author to inform Dirk when the module is ready for publishing. |
 | **Apply VBD principles** | All content must follow Section 3 — clear purpose, outcome-driven, interactive checkpoints, logical flow, and consistency. |
 | **Document scope in notes** | When creating a module, populate slide notes on slide 1 with in-scope, out-of-scope, assumptions, prerequisites, and dependencies. Cross-reference existing modules by ID. |
 | **Include interaction prompts** | Add discussion questions or customer exploration prompts in slide notes every 3–4 content slides. Format: "Discussion: [question for the customer]". |
+| **Create PowerPoint sections** | Group slides into PowerPoint sections. Each `Divider_1` slide starts a new section named after the divider title. The first section ("Introduction") contains slides 1–3. The last section ("Demos & Closing") contains the demo, Q&A, and Thank You slides. |
+| **Use integrated bulleted lists** | When adding lists to slides, use PowerPoint's built-in bullet formatting (paragraph-level bullet properties) instead of manually inserting bullet characters (`•`, `–`, `*`) in text. |
+| **Remove confidential footers and page numbers** | After creating or modifying slides, scan all shapes and delete any bottom-of-slide shapes containing "Microsoft Confidential" text or standalone slide/page number placeholders. Do not remove the title slide's bottom-bar metadata shapes (Rectangle 6, 11, 12, 13). |
+| **Generate and maintain glossary** | When creating or updating a module, scan all slide text and notes for acronyms. Create/update the glossary table on slide 3 with three columns (Acronym, Definition, Link). Sort alphabetically. Include one authoritative URL per entry — prefer Microsoft Learn or official product pages. Keep the slide hidden. |

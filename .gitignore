@@ -1,5 +1,6 @@
 # Ignore PowerPoint temp files and OS artifacts
 ~$*.pptx
+*.xlsx
 *.tmp
 Thumbs.db
 desktop.ini

@@ -3,11 +3,11 @@ Export Scenario-Module overview from the FinOps Module Repository Excel file.
 
 Joins: VBD -> Map-VBD-Scenario -> VBD Scenarios -> Map-Scenario-Module -> VBD Module
 Output columns: VBD Title, Scenario Title, Module Id, Module Title, Suggested Order, Module Type,
-               Module first release date, Module last modified
+               Module Lifecycle, Module first release date, Module last modified
 
 Optionally generates a Markdown changelog of modules changed in the last 30 days (enabled by default).
 
-Version: 1.4.0 (2026-03-01 13:54)
+Version: 1.5.0 (2026-03-05 19:09)
 
 Usage:
     python export_scenario_modules.py
@@ -16,7 +16,7 @@ Usage:
     python export_scenario_modules.py --days 60
 """
 
-__version__ = "1.4.0 (2026-03-01 13:54)"
+__version__ = "1.5.0 (2026-03-05 19:09)"
 
 import argparse
 import csv
@@ -152,6 +152,7 @@ def main():
             mod = modules.get(module_id, {})
             first_release = format_date(mod.get("Module first release date", ""))
             last_modified = format_date(mod.get("Module last modified", ""))
+            lifecycle = mod.get("Module Lifecycle", "")
 
             output_rows.append({
                 "VBD Title": vbd_title,
@@ -160,6 +161,7 @@ def main():
                 "Module Title": module_title,
                 "Suggested Order": sm.get("Suggested Order", ""),
                 "Module Type": sm.get("Module Type", ""),
+                "Module Lifecycle": lifecycle or "",
                 "Module first release date": first_release or "",
                 "Module last modified": last_modified or "",
             })
@@ -173,7 +175,7 @@ def main():
 
     # Write CSV
     fieldnames = ["VBD Title", "Scenario Title", "Module Id", "Module Title", "Suggested Order", "Module Type",
-                  "Module first release date", "Module last modified"]
+                  "Module Lifecycle", "Module first release date", "Module last modified"]
     with open(output_csv, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
@@ -199,8 +201,11 @@ def main():
                     "Module last modified": format_date(last_modified),
                 })
 
-        # Sort: New first, then by Module Id
-        changed.sort(key=lambda r: (0 if r["Status"] == "New" else 1, r["Module Id"]))
+        # Sort: New first, then Modified; within each group by last modified descending
+        changed.sort(key=lambda r: (0 if r["Status"] == "New" else 1, r["Module last modified"]), reverse=False)
+        # Two-pass stable sort: first by date desc, then by status group
+        changed.sort(key=lambda r: r["Module last modified"], reverse=True)
+        changed.sort(key=lambda r: 0 if r["Status"] == "New" else 1)
 
         changelog_path = os.path.join(output_dir, CHANGELOG_FILENAME)
         today_str = datetime.date.today().strftime("%Y-%m-%d")

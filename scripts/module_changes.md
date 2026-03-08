@@ -1,26 +1,26 @@
 # Module Changes — Last 30 Days
 
-> **Last modified:** 2026-03-01
+> **Last modified:** 2026-03-06
 
 | Status | Module Id | Module Name | Module first release date | Module last modified |
 |---|---|---|---|---|
-| New | M-046 | Workshop Azure Cost Optimization - Enabling Product Teams - Kickoff | 2026-02-01 | 2026-02-20 |
-| New | M-052 | Solution Optimization - FinOpsProduct - Generic - Scoping | 2026-02-08 | 2026-02-14 |
-| New | M-055 | FinOps - Architecting for Cloud on Azure | 2026-02-01 | 2026-02-14 |
-| New | M-056 | Azure Cost Management - Reporting & Analysis | 2026-02-01 | 2026-02-14 |
-| New | M-062 | Azure Cost Management - Managing Credits | 2026-02-14 | 2026-02-14 |
 | New | M-063 | Azure Cost Optimization - Workload - SAP on Azure | 2026-02-20 | 2026-02-20 |
+| New | M-052 | Solution Optimization - FinOpsProduct - Generic - Scoping | 2026-02-08 | 2026-02-14 |
+| New | M-062 | Azure Cost Management - Managing Credits | 2026-02-14 | 2026-02-14 |
+| Modified | M-061 | Azure Cost Optimization - Workload - Fabric | 2024-01-01 | 2026-03-06 |
+| Modified | M-058 | Azure Cost Optimization - Workload - Virtual Machines | 2025-01-01 | 2026-03-04 |
+| Modified | M-010 | Azure Billing - EA to MCA transition Guidance | 2025-01-01 | 2026-02-24 |
+| Modified | M-046 | Workshop Azure Cost Optimization - Enabling Product Teams - Kickoff | 2026-02-01 | 2026-02-20 |
+| Modified | M-005 | Azure Billing - Overview for Microsoft Customer Agreement (MCA) | 2025-01-01 | 2026-02-19 |
+| Modified | M-011 | Azure Cost Management – Azure Cost details data deep dive | 2025-01-01 | 2026-02-19 |
 | Modified | M-001 | FinOps - Introduction | 2025-01-01 | 2026-02-14 |
 | Modified | M-002 | Azure Cost Management - Tool Chain overview | 2025-01-01 | 2026-02-14 |
 | Modified | M-003 | Azure Billing - Overview and Resources | 2023-01-01 | 2026-02-14 |
 | Modified | M-004 | Azure Billing - Overview for Enterprise Agreement (EA)  | 2025-01-01 | 2026-02-14 |
-| Modified | M-005 | Azure Billing - Overview for Microsoft Customer Agreement (MCA) | 2025-01-01 | 2026-02-19 |
 | Modified | M-006 | Azure Billing - Invoice Management | 2025-01-01 | 2026-02-14 |
 | Modified | M-007 | Azure Billing - Understand Azure Pricing | 2025-01-01 | 2026-02-14 |
 | Modified | M-008 | Azure Billing - Managing Market Place offerings | 2025-01-01 | 2026-02-14 |
 | Modified | M-009 | Azure Billing - Subscription Management for Cost Management | 2024-01-01 | 2026-02-14 |
-| Modified | M-010 | Azure Billing - EA to MCA transition Guidance | 2025-01-01 | 2026-02-24 |
-| Modified | M-011 | Azure Cost Management – Azure Cost details data deep dive | 2025-01-01 | 2026-02-19 |
 | Modified | M-012 | FinOps - FinOps Open Cost and Usage Specification (FOCUS) & Reporting fundamentals | 2025-01-01 | 2026-02-14 |
 | Modified | M-013 | Azure Cost Management - Understanding Azure Cost Management scopes & roles (EA) | 2025-01-01 | 2026-02-14 |
 | Modified | M-014 | Azure Cost Management - Understanding Azure Cost Management scopes & roles (MCA) | 2025-01-01 | 2026-02-14 |
@@ -52,15 +52,15 @@
 | Modified | M-040 | Workshop Azure Cost Optimization - Enabling FinOps Teams - Scoping | 2025-01-01 | 2026-02-14 |
 | Modified | M-041 | Workshop Azure Cost Optimization - Enabling Product Teams - Scoping | 2025-01-01 | 2026-02-14 |
 | Modified | M-042 | Workshop Azure Cost Optimization - Enabling FinOps Team - Kickoff | 2025-01-01 | 2026-02-14 |
-| Modified | M-044 | Solution Optimization - FinOpsProduct - Generic - Kickoff | 2025-01-01 | 2026-02-14 |
 | Modified | M-045 | Solution Optimization - FinOpsProduct - Generic - Closeout | 2025-01-01 | 2026-02-14 |
-| Modified | M-048 | Solution Optimization - FinOps - Optimize Roles - Scoping | 2025-01-01 | 2026-02-14 |
+| Modified | M-044 | Solution Optimization - FinOpsProduct - Generic - Kickoff | 2025-01-01 | 2026-02-14 |
+| Modified | M-054 | Solution Optimization - FinOps - Optimize Roles - Closeout | 2025-01-01 | 2026-02-14 |
 | Modified | M-049 | Solution Optimization - FinOps - Optimize Roles - Kickoff | 2025-01-01 | 2026-02-14 |
+| Modified | M-048 | Solution Optimization - FinOps - Optimize Roles - Scoping | 2025-01-01 | 2026-02-14 |
 | Modified | M-050 | Workshop Azure Cost Optimization - Enabling FinOps Teams - Closeout | 2025-01-01 | 2026-02-14 |
 | Modified | M-051 | Workshop Azure Cost Optimization - Enabling Product Teams - Closeout | 2025-01-01 | 2026-02-14 |
-| Modified | M-054 | Solution Optimization - FinOps - Optimize Roles - Closeout | 2025-01-01 | 2026-02-14 |
+| Modified | M-055 | FinOps - Architecting for Cloud on Azure | 2026-02-01 | 2026-02-14 |
+| Modified | M-056 | Azure Cost Management - Reporting & Analysis | 2026-02-01 | 2026-02-14 |
 | Modified | M-057 | Azure Cost Optimization - Workload - Log Analytics | 2025-01-01 | 2026-02-14 |
-| Modified | M-058 | Azure Cost Optimization - Workload - Virtual Machines | 2025-01-01 | 2026-02-14 |
 | Modified | M-059 | Azure Cost Optimization - Workload - Storage | 2025-01-01 | 2026-02-14 |
 | Modified | M-060 | Azure Cost Optimization - Workload - Networking | 2025-01-01 | 2026-02-14 |
-| Modified | M-061 | Azure Cost Optimization - Workload - Fabric | 2024-01-01 | 2026-02-14 |

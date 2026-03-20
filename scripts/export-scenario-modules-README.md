@@ -85,7 +85,7 @@ It produces a flat CSV file (`scenario_modules.csv`) with one row per scenarioâ€
 |--------|-------------|
 | `VBD Title` | Name of the workshop (e.g., Knowledge Transfer) |
 | `Scenario Title` | Name of the scenario within the workshop |
-| `Module Id` | Module identifier (e.g., `M-001`) |
+| `Module Id` | Module identifier (e.g., `M-001` for content modules, `A-001` for artefacts) |
 | `Module Title` | Full title of the module |
 | `Suggested Order` | Delivery sequence number within the scenario (lower = earlier) |
 | `Module Type` | Inclusion type: `mandatory`, `recommended`, or `optional` |
@@ -103,7 +103,7 @@ Unless `--no-changelog` is passed, the script generates a Markdown file (`module
 | Column | Description |
 |--------|-------------|
 | `Status` | `New` if the module was first released within the period; `Modified` otherwise |
-| `Module Id` | Module identifier (e.g., `M-001`) |
+| `Module Id` | Module identifier (e.g., `M-001` for content modules, `A-001` for artefacts) |
 | `Module Name` | Full title of the module |
 | `Module first release date` | Date when the module was first released |
 | `Module last modified` | Date when the module content was last modified |

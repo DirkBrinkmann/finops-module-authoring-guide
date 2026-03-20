@@ -1,7 +1,7 @@
 # FinOps & Cost Management Workshop — Data Model Documentation
 
 > **Source file:** `FinOpsCost-Module-Repository.xlsx`
-> **Last updated:** 2026-02-18
+> **Last updated:** 2026-03-20
 
 This document describes the data model used in the FinOps & Cost Management Module Repository. The model captures workshops (VBDs), their scenarios, deliverable modules, target audiences, FinOps framework alignment, and associated technologies. It is designed to support workshop planning, module discovery, and FinOps capability mapping.
 
@@ -72,9 +72,9 @@ Modules are the atomic content units that can be assembled into scenarios. Each 
 
 | Column | Type | Description |
 |---|---|---|
-| Module Id | Text (PK) | Unique identifier (e.g. `M-001`) |
+| Module Id | Text (PK) | Unique identifier. Prefix `M` for content modules (e.g. `M-001`), prefix `A` for artefacts (e.g. `A-001`). Both prefixes use independent numbering starting at `001`. |
 | Module Title | Text | Full title of the module |
-| Module Content Type | Text | `Content Module`, `Engagement specific Module`, or `Other Module` — see [Module Content Type list](#lookup-lists) |
+| Module Content Type | Text | `Content Module`, `Engagement specific Module`, `Other Module`, or `Artefact` — see [Module Content Type list](#lookup-lists) |
 | Duration Overview | Integer | Duration in minutes for an overview delivery |
 | Duration Full | Integer | Duration in minutes for a full delivery |
 | Microsoft Contract | Text | Applicable contract scope — see [Contract list](#lookup-lists) |
@@ -348,7 +348,7 @@ Contains controlled vocabulary values used for data validation across entity tab
 | **VBD Type** | `Knowledge Transfer`, `Implementation / Value realization`, `Other` | `VBD.VBD Type` |
 | **Technology Category** | `Microsoft Azure`, `Microsoft other technology`, `Microsoft Frameworks`, `Industry Frameworks`, `Business`, `Open Source Solutions`, `3rd Party Solution`, `Other` | `Technology.Category` |
 | **Module Type** (inclusion) | `mandatory`, `recommended`, `optional` | `Map-Scenario-Module.Module Type` |
-| **Module Content Type** | `Content Module`, `Engagement specific Module`, `Other Module` | `VBD Module.Module Content Type` |
+| **Module Content Type** | `Content Module`, `Engagement specific Module`, `Other Module`, `Artefact` | `VBD Module.Module Content Type` |
 | **Module Lifecycle** | `00 - Envisioned`, `10 - In Development`, `20 - In Review`, `30 - Published & Maintained`, `40 - Sunset, not maintained`, `90 - Retired` | `VBD Module.Module Lifecycle` |
 
 ---

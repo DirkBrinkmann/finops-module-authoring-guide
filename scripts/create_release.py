@@ -9,7 +9,7 @@ Automates the full release workflow:
   5. Copies outputs to the target repo
   6. Prompts for PPTX confirmation, then commits and pushes the new branch
 
-Version: v1.2026-03-08.0 Dirk Brinkmann
+Version: v1.2026-04-02.0 Dirk Brinkmann
 
 Usage:
     python create_release.py
@@ -17,7 +17,7 @@ Usage:
     python create_release.py --help
 """
 
-__version__ = "v1.2026-03-08.0"
+__version__ = "v1.2026-04-02.0"
 
 import argparse
 import datetime
@@ -200,12 +200,25 @@ def copy_outputs(csv_path, changelog_path, target_repo):
 
 
 def confirm_pptx(target_repo):
-    """Prompt the user to confirm that PPTX files are ready."""
+    """Prompt the user to confirm that PPTX files are ready.
+
+    Reminds the release creator to verify:
+      - All PPTX files carry the **Public** Purview sensitivity label.
+      - No broken images exist (use Find-BrokenImages.ps1 to check).
+    """
     pptx_dir = os.path.join(target_repo, "modulerepository")
     info(f"PPTX files location: {pptx_dir}")
+    info(
+        "Before confirming, please verify the following:\n"
+        "    1. All PPTX files are set to the **Public** Purview sensitivity label.\n"
+        "    2. There are no broken images in the PPTX files.\n"
+        "       Run the broken-image scanner to check:\n"
+        f"       .\\Find-BrokenImages.ps1 -SourceFolder \"{pptx_dir}\""
+    )
 
     if not prompt_yes_no(
-        "Are all the latest PPTX files in the modulerepository folder?"
+        "Are all the latest PPTX files in the modulerepository folder, "
+        "labelled Public, and free of broken images?"
     ):
         abort("User indicated PPTX files are not ready.")
 
